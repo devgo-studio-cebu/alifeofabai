@@ -14,7 +14,7 @@ To set up the project for development, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone git@github.com:devgo-studio/alifeofabai.git
+git clone git@github.com:devgo-studio-cebu/alifeofabai.git
 ```
 
 2. Navigate to the project directory:
