@@ -4,8 +4,8 @@
 
 Before you begin, ensure the following are installed on your machine:
 
-- **Node.js**
-- **pnpm**
+-   **Node.js**
+-   **pnpm**
 
 ## Getting Started
 
