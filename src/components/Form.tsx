@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { merchFormSchema } from "../schemas/merch-form.schema"
+import { merchFormSchema } from "@/schemas/merch-form.schema"
 
 export function Form() {
     const { register, handleSubmit } = useForm<z.infer<typeof merchFormSchema>>(
