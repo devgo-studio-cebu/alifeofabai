@@ -2,13 +2,15 @@
 export default {
     importOrder: [
         "<TYPES>",
-        "<TYPES>^[.]",
+        "<TYPES>^[./]",
         "",
         "<BUILTIN_MODULES>",
         "^react$",
         "<THIRD_PARTY_MODULES>",
         "",
-        "^[.]",
+        "^@/(.*)$",
+        "",
+        "^[./]",
         "",
         "^(?!.*[.]css$)[./].*$",
         ".css$",
