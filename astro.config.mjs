@@ -5,6 +5,11 @@ import { defineConfig } from "astro/config"
 
 export default defineConfig({
     adapter: cloudflare(),
-    integrations: [react(), tailwind()],
+    integrations: [
+        react(),
+        tailwind({
+            applyBaseStyles: false,
+        }),
+    ],
     output: "hybrid",
 })
