@@ -1,11 +1,14 @@
 ---
+import { motion } from "framer-motion"
+
 import { Form } from "@/components/Form"
+import { Intro } from "@/components/Intro"
 import Layout from "@/layouts/Layout.astro"
 
 import "@/styles/globals.css"
 ---
 
 <Layout title="A Life of a Bai">
-    <p class="text-3xl font-bold underline">I am a Slot</p>
-    <Form />
+    <Intro client:load />
+    <!-- <Form /> -->
 </Layout>
