@@ -5,7 +5,7 @@ export default {
         "<TYPES>^[./]",
         "",
         "<BUILTIN_MODULES>",
-        "^react$",
+        "^react($|/.*$)",
         "<THIRD_PARTY_MODULES>",
         "",
         "^@/(.*)$",
@@ -23,11 +23,8 @@ export default {
             },
         },
     ],
-    plugins: [
-        "@ianvs/prettier-plugin-sort-imports",
-        "prettier-plugin-astro",
-        "prettier-plugin-tailwindcss",
-    ],
+    plugins: ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+    printWidth: 120,
     semi: false,
     tabWidth: 4,
 }
