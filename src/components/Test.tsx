@@ -82,11 +82,17 @@ export function Test() {
                 // style={{ zIndex: -1 }} // Ensure it shows above others when animated
                 className=""
             >
-                <div className="h-auto w-auto">
+                <div className="relative h-auto w-auto">
                     <img
                         src="/cookies-landing-fade-small.png"
                         alt="The logo of The Bakeshop Studios"
                         className="inset-0 h-[40rem] w-auto object-cover"
+                    />
+
+                    <img
+                        src="/logo-bakeshop-studio.webp"
+                        alt="The logo of The Bakeshop Studios"
+                        className="absolute left-5 top-0 h-[3rem] w-auto object-cover"
                     />
                 </div>
             </motion.div>
