@@ -1,12 +1,27 @@
+import type { Control } from "react-hook-form"
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import type { Control } from "react-hook-form"
 
 import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import {
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
 import { MerchFormSchema } from "@/schemas/MerchFormSchema"
 
@@ -21,7 +36,13 @@ type FormInputProps = {
     description?: React.ReactElement
 }
 
-function FormInput({ control, name, label, type, description }: FormInputProps) {
+function FormInput({
+    control,
+    name,
+    label,
+    type,
+    description,
+}: FormInputProps) {
     return (
         <FormField
             control={control}
@@ -32,7 +53,9 @@ function FormInput({ control, name, label, type, description }: FormInputProps) 
                     <FormControl>
                         <Input {...field} type={type} />
                     </FormControl>
-                    {description && <FormDescription>{description}</FormDescription>}
+                    {description && (
+                        <FormDescription>{description}</FormDescription>
+                    )}
                     <FormMessage />
                 </FormItem>
             )}
@@ -55,7 +78,10 @@ function FormSelect({ control, name, label, options }: FormSelectProps) {
             render={({ field }) => (
                 <FormItem>
                     <FormLabel>{label}</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                    >
                         <FormControl>
                             <SelectTrigger>
                                 <SelectValue />
@@ -63,7 +89,10 @@ function FormSelect({ control, name, label, options }: FormSelectProps) {
                         </FormControl>
                         <SelectContent>
                             {options.map((option) => (
-                                <SelectItem key={option.value} value={option.value}>
+                                <SelectItem
+                                    key={option.value}
+                                    value={option.value}
+                                >
                                     {option.label}
                                 </SelectItem>
                             ))}
@@ -145,11 +174,31 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
                 <div className="md:grid md:grid-cols-2 md:gap-x-2">
-                    <FormInput control={form.control} name="firstName" label="First Name" type="text" />
-                    <FormInput control={form.control} name="lastName" label="Last Name" type="text" />
+                    <FormInput
+                        control={form.control}
+                        name="firstName"
+                        label="First Name"
+                        type="text"
+                    />
+                    <FormInput
+                        control={form.control}
+                        name="lastName"
+                        label="Last Name"
+                        type="text"
+                    />
                 </div>
-                <FormInput control={form.control} name="emailAddress" label="Email Address" type="email" />
-                <FormInput control={form.control} name="phoneNumber" label="Phone Number" type="text" />
+                <FormInput
+                    control={form.control}
+                    name="emailAddress"
+                    label="Email Address"
+                    type="email"
+                />
+                <FormInput
+                    control={form.control}
+                    name="phoneNumber"
+                    label="Phone Number"
+                    type="text"
+                />
                 {["country", "province", "city", "barangay"].map((field) => (
                     <FormInput
                         key={field}
@@ -159,7 +208,12 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
                         type="text"
                     />
                 ))}
-                <FormInput control={form.control} name="streetAddress" label="Street Address" type="text" />
+                <FormInput
+                    control={form.control}
+                    name="streetAddress"
+                    label="Street Address"
+                    type="text"
+                />
                 <FormInput
                     control={form.control}
                     name="postCode"
@@ -179,8 +233,18 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
                         </>
                     }
                 />
-                <FormSelect control={form.control} name="shirtDesign" label="Shirt Design" options={shirtDesigns} />
-                <FormSelect control={form.control} name="shirtSize" label="Shirt Size" options={shirtSizes} />
+                <FormSelect
+                    control={form.control}
+                    name="shirtDesign"
+                    label="Shirt Design"
+                    options={shirtDesigns}
+                />
+                <FormSelect
+                    control={form.control}
+                    name="shirtSize"
+                    label="Shirt Size"
+                    options={shirtSizes}
+                />
                 <Button type="submit">Pre-order</Button>
             </form>
         </Form>
