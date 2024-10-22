@@ -1,17 +1,17 @@
 ---
-<<<<<<< HEAD
 import { motion } from "framer-motion"
 
 import { Form } from "@/components/Form"
 import Layout from "@/layouts/Layout.astro"
 
-import "@/styles/styles.css"
-import "@/styles/globals.css"
+import "src/styles/styles.css"
+import "src/styles/global.css"
 
 import { AlbumCover } from "@/components/AlbumCover"
 import { Intro } from "@/components/Intro"
 import { ListenNow } from "@/components/ListenNow"
 import { Merch } from "@/components/Merch"
+import { MerchForm } from "@/components/MerchForm"
 import { MusicVideo } from "@/components/MusicVideo"
 import { MusicVideoContainer } from "@/components/MusicVideoContainer"
 import { Songs } from "@/components/Songs"
@@ -58,21 +58,11 @@ import { Songs } from "@/components/Songs"
                 class="my-32 h-lvh object-cover"
             />
             <ListenNow />
-            <Form />
+            <MerchForm />
         </div>
         <div></div>
     </div>
     <!-- <Form /> -->
-=======
-import { MerchDialog } from "@/components/MerchDialog"
-import Layout from "@/layouts/Layout.astro"
-
-import "@/styles/global.css"
----
-
-<Layout title="A Life of a Bai">
-    <MerchDialog client:load />
->>>>>>> 5e5291332d313670a17dbeeb6524a8088e0c1352
 </Layout>
 
 <!-- Todo -->
