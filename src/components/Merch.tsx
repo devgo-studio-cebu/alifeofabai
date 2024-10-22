@@ -50,7 +50,7 @@ export function Merch() {
                 <img
                     src="/cookies-nobg.png"
                     alt={`Cookies Merch`}
-                    className="h-auto w-full"
+                    className="size-24 h-auto w-full"
                 />
                 <p className="relative bottom-5 mx-auto text-2xl text-[#EC4441]">
                     Cookie$ Merch (Navy Blue)
