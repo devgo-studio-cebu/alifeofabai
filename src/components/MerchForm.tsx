@@ -1,27 +1,12 @@
-import type { Control } from "react-hook-form"
-
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import type { Control } from "react-hook-form"
 
 import { Button } from "@/components/ui/button"
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useToast } from "@/hooks/use-toast"
 import { MerchFormSchema } from "@/schemas/MerchFormSchema"
 
@@ -36,25 +21,19 @@ type FormInputProps = {
     description?: React.ReactElement
 }
 
-function FormInput({
-    control,
-    name,
-    label,
-    type,
-    description,
-}: FormInputProps) {
+function FormInput({ control, name, label, type, description }: FormInputProps) {
     return (
         <FormField
             control={control}
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>{label}</FormLabel>
+                    <FormLabel className="font-bold text-[#560E0E]">{label}</FormLabel>
                     <FormControl>
-                        <Input {...field} type={type} />
+                        <Input {...field} type={type} className="border-[#711312] bg-slate-300" />
                     </FormControl>
                     {description && (
-                        <FormDescription>{description}</FormDescription>
+                        <FormDescription className="text-center text-[#560E0E]">{description}</FormDescription>
                     )}
                     <FormMessage />
                 </FormItem>
@@ -68,31 +47,26 @@ type FormSelectProps = Omit<FormInputProps, "type"> & {
         value: string
         label: string
     }[]
+    styles: string
 }
 
-function FormSelect({ control, name, label, options }: FormSelectProps) {
+function FormSelect({ control, name, label, options, styles }: FormSelectProps) {
     return (
         <FormField
             control={control}
             name={name}
             render={({ field }) => (
-                <FormItem>
-                    <FormLabel>{label}</FormLabel>
-                    <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                    >
-                        <FormControl>
+                <FormItem className="w-full">
+                    <FormLabel className="font-bold text-[#560E0E]">{label}</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl className={styles}>
                             <SelectTrigger>
                                 <SelectValue />
                             </SelectTrigger>
                         </FormControl>
                         <SelectContent>
                             {options.map((option) => (
-                                <SelectItem
-                                    key={option.value}
-                                    value={option.value}
-                                >
+                                <SelectItem key={option.value} value={option.value}>
                                     {option.label}
                                 </SelectItem>
                             ))}
@@ -171,82 +145,65 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
     ]
 
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className="md:grid md:grid-cols-2 md:gap-x-2">
+        <div className="h-[500px] overflow-auto overscroll-y-none">
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="bg-[#BC2725] p-4">
+                    <div className="md:grid md:grid-cols-2 md:gap-x-2">
+                        <FormInput control={form.control} name="firstName" label="First Name" type="text" />
+                        <FormInput control={form.control} name="lastName" label="Last Name" type="text" />
+                    </div>
+                    <FormInput control={form.control} name="emailAddress" label="Email Address" type="email" />
+                    <FormInput control={form.control} name="phoneNumber" label="Phone Number" type="text" />
+                    {["country", "province", "city", "barangay"].map((field) => (
+                        <FormInput
+                            key={field}
+                            control={form.control}
+                            name={field as MerchFormKeys}
+                            label={field.charAt(0).toUpperCase() + field.slice(1)}
+                            type="text"
+                        />
+                    ))}
+                    <FormInput control={form.control} name="streetAddress" label="Street Address" type="text" />
                     <FormInput
                         control={form.control}
-                        name="firstName"
-                        label="First Name"
+                        name="postCode"
+                        label="Post Code"
                         type="text"
+                        description={
+                            <>
+                                Look for your post code here:&nbsp;
+                                <a
+                                    href="https://worldpostalcode.com/philippines/"
+                                    target="_blank"
+                                    rel="nofollow"
+                                    className="underline hover:text-blue-600"
+                                >
+                                    World Postal Code
+                                </a>
+                            </>
+                        }
                     />
-                    <FormInput
-                        control={form.control}
-                        name="lastName"
-                        label="Last Name"
-                        type="text"
-                    />
-                </div>
-                <FormInput
-                    control={form.control}
-                    name="emailAddress"
-                    label="Email Address"
-                    type="email"
-                />
-                <FormInput
-                    control={form.control}
-                    name="phoneNumber"
-                    label="Phone Number"
-                    type="text"
-                />
-                {["country", "province", "city", "barangay"].map((field) => (
-                    <FormInput
-                        key={field}
-                        control={form.control}
-                        name={field as MerchFormKeys}
-                        label={field.charAt(0).toUpperCase() + field.slice(1)}
-                        type="text"
-                    />
-                ))}
-                <FormInput
-                    control={form.control}
-                    name="streetAddress"
-                    label="Street Address"
-                    type="text"
-                />
-                <FormInput
-                    control={form.control}
-                    name="postCode"
-                    label="Post Code"
-                    type="text"
-                    description={
-                        <>
-                            Look for your post code here:&nbsp;
-                            <a
-                                href="https://worldpostalcode.com/philippines/"
-                                target="_blank"
-                                rel="nofollow"
-                                className="underline hover:text-blue-600"
-                            >
-                                World Postal Code
-                            </a>
-                        </>
-                    }
-                />
-                <FormSelect
-                    control={form.control}
-                    name="shirtDesign"
-                    label="Shirt Design"
-                    options={shirtDesigns}
-                />
-                <FormSelect
-                    control={form.control}
-                    name="shirtSize"
-                    label="Shirt Size"
-                    options={shirtSizes}
-                />
-                <Button type="submit">Pre-order</Button>
-            </form>
-        </Form>
+                    <div className="mt-2 flex w-full justify-between gap-2">
+                        <FormSelect
+                            control={form.control}
+                            name="shirtDesign"
+                            label="Shirt Design"
+                            options={shirtDesigns}
+                            styles="w-[175px] border-[#711312] bg-slate-300 overflow-hidden truncate"
+                        />
+                        <FormSelect
+                            control={form.control}
+                            name="shirtSize"
+                            label="Shirt Size"
+                            options={shirtSizes}
+                            styles="border-[#711312] bg-slate-300 "
+                        />
+                    </div>
+                    <Button type="submit" className="mt-8 w-full rounded-md bg-[#711312] font-bold text-white">
+                        Pre-order
+                    </Button>
+                </form>
+            </Form>
+        </div>
     )
 }

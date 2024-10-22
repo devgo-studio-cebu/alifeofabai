@@ -16,21 +16,17 @@ import { MusicVideo } from "@/components/MusicVideo"
 import { MusicVideoContainer } from "@/components/MusicVideoContainer"
 import { Songs } from "@/components/Songs"
 import { TransitionCarousel } from "@/components/TransitionCarousel"
+import { MerchDialog } from "@/components/MerchDialog"
 ---
 
 <Layout title="A Life of a Bai">
-    <div class="page-header e grid-cols-4 lg:grid">
+    <div class="relative page-header grid-cols-4 lg:grid">
         <div></div>
         <div class="col-span-2">
             <Intro client:load />
             <section
                 class="relative mb-[2rem] mt-[7rem] w-full border-solid border-red-500 px-4"
             >
-                <!-- <p
-                    class="left-0 top-[1rem] px-8 text-4xl text-white opacity-75"
-                >
-                    by
-                </p> -->
 
                 <p class="relative left-0 top-4 text-4xl text-white opacity-75">
                     by
@@ -53,9 +49,9 @@ import { TransitionCarousel } from "@/components/TransitionCarousel"
             <AlbumCover />
             <Songs client:visible />
             <Merch client:idle />
+            <MerchDialog client:load/>
             <TransitionCarousel client:idle />
             <ListenNow />
-            <MerchForm />
         </div>
         <div></div>
     </div>
