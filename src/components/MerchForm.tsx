@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useToast } from "@/hooks/use-toast"
 import { MerchFormSchema } from "@/schemas/MerchFormSchema"
 
 type MerchFormValues = z.infer<typeof MerchFormSchema>
@@ -98,6 +99,8 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
         },
     })
 
+    const { toast } = useToast()
+
     const onSubmit = async (values: MerchFormValues) => {
         try {
             const response = await fetch("/api/send-email.json", {
@@ -113,10 +116,15 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
             }
 
             const data = await response.json()
-            console.log("Success:", data) // TODO: Change to toast
+
+            toast({ title: `${data.message}` })
             onSuccess()
         } catch (error) {
-            console.log("Error:", error) // TODO: Change to toast
+            if (error instanceof Error) {
+                toast({ title: `${error.message}`, variant: "destructive" })
+            }
+
+            toast({ title: String(error), variant: "destructive" })
         }
     }
 

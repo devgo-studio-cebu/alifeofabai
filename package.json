@@ -4,11 +4,12 @@
     "version": "0.0.1",
     "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
     "scripts": {
-        "dev": "astro dev",
-        "build": "astro check && astro build",
-        "preview": "astro preview",
         "astro": "astro",
-        "email": "email dev --dir src/emails",
+        "build": "astro check && astro build",
+        "dev": "astro dev",
+        "preview": "astro preview",
+        "start": "astro dev",
+        "email:dev": "email dev --dir src/emails",
         "format": "prettier . --write"
     },
     "dependencies": {
@@ -22,6 +23,7 @@
         "@radix-ui/react-label": "^2.1.0",
         "@radix-ui/react-select": "^2.1.2",
         "@radix-ui/react-slot": "^1.1.0",
+        "@radix-ui/react-toast": "^1.2.2",
         "@react-email/components": "^0.0.25",
         "@types/react": "^18.3.11",
         "@types/react-dom": "^18.3.1",
