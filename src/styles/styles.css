@@ -3,6 +3,7 @@
 }
 
 .page-header:after {
+    pointer-events: none;
     background-image: url(https://thumbs.dreamstime.com/b/background-grain-texture-black-abstract-film-noise-dotwork-halftone-grunge-design-concepts-banners-posters-wallpapers-web-90834053.jpg);
     content: "";
     animation: grain 0.5s steps(10) infinite;

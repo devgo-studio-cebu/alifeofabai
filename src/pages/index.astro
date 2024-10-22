@@ -10,10 +10,12 @@ import "@/styles/globals.css"
 import { MusicVideo } from "@/components/MusicVideo"
 import { MusicVideoContainer } from "@/components/MusicVideoContainer"
 import { Test } from "@/components/Test"
+import { Merch } from "@/components/Merch"
+import { Songs } from "@/components/Songs"
 ---
 
 <Layout title="A Life of a Bai">
-    <div class="page-header grid-cols-4 lg:grid">
+    <div class="page-header grid-cols-4 lg:grid e">
         <div></div>
         <div class="col-span-2">
             <!-- Animated Intro -->
@@ -33,7 +35,7 @@ import { Test } from "@/components/Test"
                     class="cookies-logo-container mx-auto h-auto w-[20rem] rotate-[-15deg]"
                 >
                     <img
-                        src="/cookies-logo-nobg-white.png"
+                        src="./cookies-logo-nobg-white.png"
                         id="cookies-logo"
                         alt=""
                         class="cookies-logo"
@@ -67,41 +69,13 @@ import { Test } from "@/components/Test"
                     class="pointer-events-none z-10"
                 />
             </section>
+
             <!-- Songs Section -->
-            <section>
-                <div
-                    class="m-0 flex h-lvh snap-y flex-col items-center justify-center bg-[#202020] p-0"
-                >
-                    <MusicVideo
-                        videoSource="/17b-edited-final.webm"
-                        videoFormat="webm"
-                    />
-                </div>
-
-                <div
-                    class="m-0 flex h-lvh snap-y flex-col items-center justify-center bg-[#303030] p-0"
-                >
-                    <MusicVideo
-                        videoSource="/agad-edited.webm"
-                        videoFormat="webm"
-                    />
-                </div>
-
-                <div
-                    class="m-0 flex h-lvh snap-y flex-col items-center justify-center bg-[#404040] p-0"
-                >
-                    <MusicVideo
-                        videoSource="/pasitib-edited.webm"
-                        videoFormat="webm"
-                    />
-                </div>
-            </section>
-            <section>
-                <!-- playsinline - allows autoplay in safari/iOS devices -->
-            </section>
+            <Songs/>
 
             <!-- Merch Section -->
-
+            <Merch client:load/>
+             
             <!-- Form -->
             <section></section>
         </div>
@@ -109,3 +83,10 @@ import { Test } from "@/components/Test"
     </div>
     <!-- <Form /> -->
 </Layout>
+
+<!-- Todo -->
+<!-- Add scroll snapping to Song section -->
+<!-- Add Merch section -->
+<!-- Add Forms for merch -->
+<!-- Add Listen Now Spotify -->
+<!-- Add Footer -->

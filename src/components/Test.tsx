@@ -1,5 +1,7 @@
+
 import { useEffect } from "react"
 import { motion, stagger, useAnimate } from "framer-motion"
+
 
 export function Test() {
     const [scope, animate] = useAnimate()
@@ -84,7 +86,7 @@ export function Test() {
             >
                 <div className="relative h-auto w-auto">
                     <img
-                        src="/cookies-landing-fade-small.png"
+                        src="./assets/cookies-landing-edited-small.png"
                         alt="The logo of The Bakeshop Studios"
                         className="inset-0 h-[40rem] w-auto object-cover"
                     />
