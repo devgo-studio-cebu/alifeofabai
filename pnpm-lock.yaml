@@ -2321,7 +2321,6 @@ packages:
             {
                 integrity: sha512-S8sMe4q71TJAW+qG93s5VaiihujRK6rqDFqBnxqvga/3LvqHEnxqBIOPkt//IdXVtHkQWKu4nOQNk0uBGicU7Q==,
             }
-
     "@shikijs/engine-javascript@1.22.0":
         resolution:
             {
