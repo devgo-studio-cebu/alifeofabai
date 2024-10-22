@@ -4,45 +4,54 @@ export function Merch() {
     const [style, setStyle] = useState("front")
     const [isHovering, setIsHovering] = useState(false)
 
-    useEffect(() => {
-        console.log("Component mounted")
-    }, [])
-
-    const handleMouseEnter = () => {
-        console.log("Mouse enter, changing to back")
-        setStyle("back")
-        setIsHovering(true)
-    }
-
-    const handleMouseLeave = () => {
-        console.log("Mouse leave, changing to front")
-        setStyle("front")
-        setIsHovering(false)
-    }
-
     return (
-        <section className="flex flex-col gap-4 p-8">
+        <section className="flex flex-col gap-8 p-8">
             <div
-                className={`w-full cursor-pointer transition-all duration-300 ease-in-out ${isHovering ? "bg-red-500" : "bg-blue-400"}`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                className={`flex w-full cursor-pointer flex-col items-center justify-center transition-all duration-500 ease-in-out`}
+                onMouseEnter={() => setStyle("back")}
+                onMouseLeave={() => setStyle("front")}
             >
                 <img
                     src={`/17b-nobg-${style}.png`}
                     alt={`17B Merch Shirt ${style}`}
                     className="h-auto w-full"
                 />
-                {/* Debug info */}
-                <p className="left-0 top-0 text-black">
-                    Current style: {style}, Hovering:{" "}
-                    {isHovering ? "Yes" : "No"}
+                <p className="mx-auto text-2xl text-[#EC4441]">17B Jersey</p>
+                <button className="mt-4 w-3/4 rounded-full border-2 border-solid border-[#EC4441] p-2 text-3xl font-bold text-[#EC4441]">
+                    I want this
+                </button>
+            </div>
+
+            <div
+                className={`flex w-full cursor-pointer flex-col items-center justify-center border-solid border-red-200 transition-all duration-500 ease-in-out`}
+            >
+                <img
+                    src="/pasitib-nobg.png"
+                    alt={`17B Merch Shirt ${style}`}
+                    className="h-auto w-full"
+                />
+
+                <p className="mx-auto text-2xl text-[#EC4441]">
+                    Pasitib Muscle Tee
                 </p>
-                <button
-                    className={`rounded p-2 transition-colors duration-300 ${isHovering ? "bg-red-500 text-white" : "bg-white text-black"}`}
-                    onMouseEnter={() => console.log("Button hover enter")}
-                    onMouseLeave={() => console.log("Button hover leave")}
-                >
-                    <h1>hello</h1>
+                <button className="mt-4 w-3/4 rounded-full border-2 border-solid border-[#EC4441] p-2 text-3xl font-bold text-[#EC4441]">
+                    I want this
+                </button>
+            </div>
+
+            <div
+                className={`flex w-full cursor-pointer flex-col items-center justify-center transition-all duration-500 ease-in-out`}
+            >
+                <img
+                    src="/cookies-nobg.png"
+                    alt={`17B Merch Shirt ${style}`}
+                    className="h-auto w-full"
+                />
+                <p className="mx-auto text-2xl text-[#EC4441]">
+                    Cookie$ Merch (Navy Blue)
+                </p>
+                <button className="mt-4 w-3/4 rounded-full border-2 border-solid border-[#EC4441] p-2 text-3xl font-bold text-[#EC4441]">
+                    I want this
                 </button>
             </div>
         </section>

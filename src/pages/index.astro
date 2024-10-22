@@ -7,21 +7,22 @@ import Layout from "@/layouts/Layout.astro"
 import "@/styles/styles.css"
 import "@/styles/globals.css"
 
+import { AlbumCover } from "@/components/AlbumCover"
+import { Intro } from "@/components/Intro"
+import { Merch } from "@/components/Merch"
 import { MusicVideo } from "@/components/MusicVideo"
 import { MusicVideoContainer } from "@/components/MusicVideoContainer"
-import { Test } from "@/components/Test"
-import { Merch } from "@/components/Merch"
 import { Songs } from "@/components/Songs"
 ---
 
 <Layout title="A Life of a Bai">
-    <div class="page-header grid-cols-4 lg:grid e">
+    <div class="page-header e grid-cols-4 lg:grid">
         <div></div>
         <div class="col-span-2">
             <!-- Animated Intro -->
-            <Test client:load />
-            <!-- By Cookies -->
+            <Intro client:load />
 
+            <!-- By Cookies -->
             <section
                 class="relative mb-[2rem] mt-[7rem] border-solid border-red-500 py-[3rem]"
             >
@@ -48,34 +49,16 @@ import { Songs } from "@/components/Songs"
                     10.25.2024
                 </p>
             </section>
-            <!-- Album Cover -->
-            <section
-                class="relative flex items-center justify-center bg-[#BC2725] px-2 py-24"
-            >
-                <img
-                    src="/texture-rock-overlay.jpg"
-                    class="absolute top-0 z-0 h-full w-full bg-black mix-blend-overlay"
-                />
-                <div
-                    class="absolute top-0 h-24 w-full"
-                    style="background: -webkit-linear-gradient(top, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0));"
-                >
-                </div>
 
-                <img
-                    src="/album-cover-combined-nobg.png"
-                    alt=""
-                    srcset=""
-                    class="pointer-events-none z-10"
-                />
-            </section>
+            <!-- Album Cover -->
+            <AlbumCover />
 
             <!-- Songs Section -->
-            <Songs/>
+            <Songs />
 
             <!-- Merch Section -->
-            <Merch client:load/>
-             
+            <Merch client:load />
+
             <!-- Form -->
             <section></section>
         </div>
