@@ -1,13 +1,13 @@
-import type { Control } from "react-hook-form"
-
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import type { Control } from "react-hook-form"
 
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useToast } from "@/hooks/use-toast"
 import { MerchFormSchema } from "@/schemas/MerchFormSchema"
 
 type MerchFormValues = z.infer<typeof MerchFormSchema>
@@ -99,9 +99,33 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
         },
     })
 
-    function onSubmit(values: MerchFormValues) {
-        console.log(values)
-        onSuccess()
+    const { toast } = useToast()
+
+    const onSubmit = async (values: MerchFormValues) => {
+        try {
+            const response = await fetch("/api/send-email.json", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            })
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+
+            const data = await response.json()
+
+            toast({ title: `${data.message}` })
+            onSuccess()
+        } catch (error) {
+            if (error instanceof Error) {
+                toast({ title: `${error.message}`, variant: "destructive" })
+            }
+
+            toast({ title: String(error), variant: "destructive" })
+        }
     }
 
     const shirtDesigns = [
