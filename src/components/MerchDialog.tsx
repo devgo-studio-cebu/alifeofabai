@@ -16,8 +16,13 @@ export function MerchDialog() {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
-        <>
-            <Button onClick={() => setIsOpen(true)}>Pre-order now!</Button>
+        <div className="flex justify-center">
+            <Button
+                className="rounded-full border-2 border-solid border-[#EC4441] bg-transparent p-8 text-4xl text-[#EC4441]"
+                onClick={() => setIsOpen(true)}
+            >
+                Pre-order now!
+            </Button>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
                 <DialogContent className="border-none">
                     {/* <DialogHeader>
@@ -32,6 +37,6 @@ export function MerchDialog() {
                     </div>
                 </DialogContent>
             </Dialog>
-        </>
+        </div>
     )
 }

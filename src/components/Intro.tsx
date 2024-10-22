@@ -44,10 +44,7 @@ export function Intro() {
     // }, [])
 
     return (
-        <div
-            ref={scope}
-            className="flex h-svh flex-col items-center justify-center"
-        >
+        <div ref={scope} className="flex h-svh flex-col items-center justify-center">
             {/* <motion.div
                 initial={{ opacity: 0 }}
                 id="intro-1" // Remove the '#' from the id
