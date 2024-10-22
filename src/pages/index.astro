@@ -15,6 +15,13 @@ import { MerchForm } from "@/components/MerchForm"
 import { MusicVideo } from "@/components/MusicVideo"
 import { MusicVideoContainer } from "@/components/MusicVideoContainer"
 import { Songs } from "@/components/Songs"
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
 ---
 
 <Layout title="A Life of a Bai">
@@ -52,11 +59,20 @@ import { Songs } from "@/components/Songs"
             <AlbumCover />
             <Songs />
             <Merch client:load />
-            <img
-                src="/cookies-transition-5.png"
-                alt="A Cookie$ Image"
-                class="my-32 h-lvh object-cover"
-            />
+            <Carousel>
+                <CarouselContent>
+                    <CarouselItem>
+                        <img
+                            src="/cookies-transition-5.png"
+                            alt="A Cookie$ Image"
+                            class="my-32 h-lvh object-cover"
+                        />
+                    </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+
             <ListenNow />
             <MerchForm />
         </div>
