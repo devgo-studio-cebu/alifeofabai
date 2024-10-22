@@ -9,6 +9,7 @@ import "@/styles/globals.css"
 
 import { AlbumCover } from "@/components/AlbumCover"
 import { Intro } from "@/components/Intro"
+import { ListenNow } from "@/components/ListenNow"
 import { Merch } from "@/components/Merch"
 import { MusicVideo } from "@/components/MusicVideo"
 import { MusicVideoContainer } from "@/components/MusicVideoContainer"
@@ -19,48 +20,44 @@ import { Songs } from "@/components/Songs"
     <div class="page-header e grid-cols-4 lg:grid">
         <div></div>
         <div class="col-span-2">
-            <!-- Animated Intro -->
             <Intro client:load />
-
-            <!-- By Cookies -->
             <section
-                class="relative mb-[2rem] mt-[7rem] border-solid border-red-500 py-[3rem]"
+                class="relative mb-[2rem] mt-[7rem] w-full border-solid border-red-500 px-4"
             >
-                <p
-                    class="absolute left-0 top-[1rem] px-8 text-4xl text-white opacity-75"
+                <!-- <p
+                    class="left-0 top-[1rem] px-8 text-4xl text-white opacity-75"
                 >
                     by
-                </p>
+                </p> -->
 
-                <div
-                    class="cookies-logo-container mx-auto h-auto w-[20rem] rotate-[-15deg]"
-                >
+                <p class="relative left-0 top-4 text-4xl text-white opacity-75">
+                    by
+                </p>
+                <div class="cookies-logo-container h-auto rotate-[-15deg]">
                     <img
                         src="./cookies-logo-nobg-white.png"
                         id="cookies-logo"
                         alt=""
-                        class="cookies-logo"
+                        class="cookies-logo mx-auto w-fit"
                     />
                 </div>
 
                 <p
-                    class="absolute bottom-0 right-[1rem] text-4xl text-white opacity-75"
+                    class="bottom-0 right-0 ml-auto w-fit text-4xl text-white opacity-75"
                 >
                     10.25.2024
                 </p>
             </section>
-
-            <!-- Album Cover -->
             <AlbumCover />
-
-            <!-- Songs Section -->
             <Songs />
-
-            <!-- Merch Section -->
             <Merch client:load />
-
-            <!-- Form -->
-            <section></section>
+            <img
+                src="/cookies-transition-5.png"
+                alt="A Cookie$ Image"
+                class="my-32 h-lvh object-cover"
+            />
+            <ListenNow />
+            <Form />
         </div>
         <div></div>
     </div>

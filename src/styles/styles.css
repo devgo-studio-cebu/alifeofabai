@@ -15,7 +15,33 @@
     opacity: 0.15;
     mix-blend-mode: screen;
 }
-
+.merch-glitch {
+    position: relative;
+    z-index: 99;
+    /* font-size: 12em; */
+    color: #fff;
+    /* left: 35%;
+    top: 40%; */
+}
+.merch-glitch::before,
+.merch-glitch::after {
+    position: absolute;
+    content: attr(data-text);
+    top: 0;
+    left: 0;
+    animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94) both
+        infinite;
+}
+.merch-glitch::before {
+    color: #00c2ba;
+    z-index: -2;
+    animation: glitching-blue 0.6s cubic-bezier(0.25, 0.46, 0.25, 0.94) both
+        infinite;
+}
+.merch-glitch::after {
+    color: #33ff04;
+    z-index: -1;
+}
 .cookies-logo-container {
     position: relative; /* Positioning context for pseudo-elements */
     display: inline-block; /* Ensure it wraps around the image */
@@ -48,6 +74,24 @@
     animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94)
         infinite;
 }
+.passion-one-regular {
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.passion-one-bold {
+    font-family: "Passion One", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.passion-one-black {
+    font-family: "Passion One", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
 @keyframes glitching-green {
     0% {
         transform: translate(0);

@@ -5,9 +5,20 @@ export function Merch() {
     const [isHovering, setIsHovering] = useState(false)
 
     return (
-        <section className="flex flex-col gap-8 p-8">
+        <section className="relative flex flex-col gap-8">
+            <img
+                src="/merch-bg-fade.png"
+                alt="Photo of Cookie$ in concert"
+                className=""
+            />
+            <h1
+                data-text="MERCH"
+                className="merch-glitch passion-one-bold mx-auto text-8xl text-white"
+            >
+                MERCH
+            </h1>
             <div
-                className={`flex w-full cursor-pointer flex-col items-center justify-center transition-all duration-500 ease-in-out`}
+                className={`flex w-full cursor-pointer flex-col items-center justify-center px-8 transition-all duration-500 ease-in-out`}
                 onMouseEnter={() => setStyle("back")}
                 onMouseLeave={() => setStyle("front")}
             >
@@ -17,9 +28,6 @@ export function Merch() {
                     className="h-auto w-full"
                 />
                 <p className="mx-auto text-2xl text-[#EC4441]">17B Jersey</p>
-                <button className="mt-4 w-3/4 rounded-full border-2 border-solid border-[#EC4441] p-2 text-3xl font-bold text-[#EC4441]">
-                    I want this
-                </button>
             </div>
 
             <div
@@ -27,16 +35,13 @@ export function Merch() {
             >
                 <img
                     src="/pasitib-nobg.png"
-                    alt={`17B Merch Shirt ${style}`}
+                    alt={`Pasitib Muscle Tee`}
                     className="h-auto w-full"
                 />
 
                 <p className="mx-auto text-2xl text-[#EC4441]">
                     Pasitib Muscle Tee
                 </p>
-                <button className="mt-4 w-3/4 rounded-full border-2 border-solid border-[#EC4441] p-2 text-3xl font-bold text-[#EC4441]">
-                    I want this
-                </button>
             </div>
 
             <div
@@ -44,15 +49,12 @@ export function Merch() {
             >
                 <img
                     src="/cookies-nobg.png"
-                    alt={`17B Merch Shirt ${style}`}
+                    alt={`Cookies Merch`}
                     className="h-auto w-full"
                 />
-                <p className="mx-auto text-2xl text-[#EC4441]">
+                <p className="relative bottom-5 mx-auto text-2xl text-[#EC4441]">
                     Cookie$ Merch (Navy Blue)
                 </p>
-                <button className="mt-4 w-3/4 rounded-full border-2 border-solid border-[#EC4441] p-2 text-3xl font-bold text-[#EC4441]">
-                    I want this
-                </button>
             </div>
         </section>
     )
