@@ -1,8 +1,7 @@
-import type { Control } from "react-hook-form"
-
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import type { Control } from "react-hook-form"
 
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
@@ -99,9 +98,26 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
         },
     })
 
-    function onSubmit(values: MerchFormValues) {
-        console.log(values)
-        onSuccess()
+    const onSubmit = async (values: MerchFormValues) => {
+        try {
+            const response = await fetch("/api/send-email.json", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            })
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+
+            const data = await response.json()
+            console.log("Success:", data) // TODO: Change to toast
+            onSuccess()
+        } catch (error) {
+            console.log("Error:", error) // TODO: Change to toast
+        }
     }
 
     const shirtDesigns = [

@@ -1,4 +1,4 @@
-import { Body, Container, Html, Text } from "@react-email/components"
+import { Body, Container, Html, Tailwind, Text } from "@react-email/components"
 
 type MerchEmailProp = {
     fullName: string
@@ -17,15 +17,17 @@ export default function MerchEmail({
 }: MerchEmailProp) {
     return (
         <Html>
-            <Body style={{ fontFamily: "sans-serif" }}>
-                <Container>
-                    <Text>Name: {fullName}</Text>
-                    <Text>Email Address: {emailAddress}</Text>
-                    <Text>Contact Number: {contactNumber}</Text>
-                    <Text>Address: {fullAddress}</Text>
-                    <Text>Order Detail: {orderDetail}</Text>
-                </Container>
-            </Body>
+            <Tailwind>
+                <Body className="font-sans">
+                    <Container>
+                        <Text>Name: {fullName}</Text>
+                        <Text>Email Address: {emailAddress}</Text>
+                        <Text>Contact Number: {contactNumber}</Text>
+                        <Text>Address: {fullAddress}</Text>
+                        <Text>Order Detail: {orderDetail}</Text>
+                    </Container>
+                </Body>
+            </Tailwind>
         </Html>
     )
 }

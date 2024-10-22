@@ -1,13 +1,13 @@
-import type { APIRoute } from "astro"
-
+import { RESEND_API_KEY } from "astro:env/server"
 import { Resend } from "resend"
+import type { APIRoute } from "astro"
 
 import MerchEmail from "@/emails/MerchEmail"
 import { MerchFormSchema } from "@/schemas/MerchFormSchema"
 
 export const prerender = false
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY)
+const resend = new Resend(RESEND_API_KEY)
 
 export const POST: APIRoute = async ({ request }) => {
     const body = await request.json()
@@ -40,8 +40,8 @@ export const POST: APIRoute = async ({ request }) => {
     } = result.data
 
     const { error } = await resend.emails.send({
-        from: "Acme <onboarding@resend.dev>",
-        to: ["delivered@resend.dev"],
+        from: "A Life of a Bai <merch@alifeofabai.com>",
+        to: "cookies@thebakeshopstudios.com",
         subject: `Order from ${firstName} ${lastName}`,
         react: MerchEmail({
             fullName: `${firstName} ${lastName}`,

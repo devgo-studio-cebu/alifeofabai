@@ -1,16 +1,16 @@
 /** @type {import("prettier").Config} */
 export default {
     importOrder: [
-        "<TYPES>",
-        "<TYPES>^[./]",
-        "",
         "<BUILTIN_MODULES>",
         "^react($|/.*$)",
         "<THIRD_PARTY_MODULES>",
+        "<TYPES>",
         "",
         "^@/(.*)$",
+        "<TYPES>^@/(.*)$",
         "",
         "^[./]",
+        "<TYPES>^[./]",
         "",
         "^(?!.*[.]css$)[./].*$",
         ".css$",
