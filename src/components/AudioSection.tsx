@@ -14,6 +14,8 @@ const AudioSection: React.FC<AudioSectionProps> = ({ id, audioSrc, children }) =
         // Initialize the audio reference
         if (typeof Audio !== "undefined") {
             audioRef.current = new Audio(audioSrc)
+            audioRef.current.loop = true
+            audioRef.current.autoplay = true
         }
 
         const observer = new IntersectionObserver(
