@@ -14,8 +14,7 @@ export function Intro() {
         await animate("#intro-2", { opacity: 0, display: "none" }, { duration: 0 })
 
         // Animate #intro-3
-        await animate("#intro-3", { opacity: 1 }, { duration: 0, delay: stagger(3) })
-        await animate("#intro-3", { opacity: 0 }, { duration: 1 })
+        await animate("#intro-3", { opacity: 1 }, { duration: 1, delay: stagger(3) })
     }
 
     useEffect(() => {

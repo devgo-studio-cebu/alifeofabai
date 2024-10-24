@@ -26,7 +26,7 @@ export function Songs() {
     return (
         <section className="">
             {songList.map(({ id, color, audioSrc, videoSrc }) => (
-                <div className={`flex flex-col items-start justify-start bg-[${color}] pb-24`}>
+                <div className={`flex flex-col items-start justify-start bg-[${color}] pb-32`}>
                     <AudioSection id={id} audioSrc={audioSrc}>
                         <MusicVideo videoSrc={videoSrc} videoFormat="webm" />
                     </AudioSection>

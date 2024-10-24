@@ -29,7 +29,7 @@ export function Merch() {
                 onMouseLeave={() => setStyle("front")}
             >
                 <img src={`/17b-nobg-${style}.png`} alt={`17B Merch Shirt ${style}`} className="h-auto w-full" />
-                <p className="relative bottom-[2rem] mx-auto text-2xl text-[#EC4441]">17B Jersey</p>
+                <p className="relative mx-auto text-2xl text-[#EC4441]">17B Jersey</p>
             </div>
             {merchList.map((merch, index) => (
                 <div

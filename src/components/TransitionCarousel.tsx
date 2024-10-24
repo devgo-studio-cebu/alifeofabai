@@ -14,8 +14,8 @@ export function TransitionCarousel() {
                 }),
             ]}
         >
-            <CarouselContent>
-                <CarouselItem className="object-cover">
+            <CarouselContent className="">
+                <CarouselItem className="">
                     <img src="/cookies-transition-1.png" alt="A Cookie$ Image" className="my-32 h-lvh object-cover" />
                 </CarouselItem>
                 <CarouselItem>
