@@ -10,13 +10,14 @@ import Layout from "@/layouts/Layout.astro"
 
 import "src/styles/styles.css"
 import "src/styles/global.css"
+
 import { Footer } from "@/components/Footer"
 import PreventInteraction from "@/components/PreventInteraction"
 ---
 
 <Layout title="A Life of a Bai">
-    <PreventInteraction client:load/>
-    <div class="relative page-header flex-grow lg:grid lg:grid-cols-4">
+    <PreventInteraction client:load />
+    <div class="page-header relative flex-grow lg:grid lg:grid-cols-4">
         <div class="col-span-2 col-start-2">
             <AudioControl client:load />
             <Intro client:load />
