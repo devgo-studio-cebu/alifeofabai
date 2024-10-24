@@ -4,7 +4,6 @@ import { MerchDialog } from "./MerchDialog"
 
 export function Merch() {
     const [style, setStyle] = useState("front")
-    const [isHovering, setIsHovering] = useState(false)
     const merchList = [
         {
             merchSource: ["/pasitib-nobg.png"],
@@ -19,7 +18,7 @@ export function Merch() {
     ]
     return (
         <section className="flex flex-col gap-8">
-            <img src="/merch-bg-fade.png" alt="Photo of Cookie$ in concert" className="" />
+            <img src="/cookies-alt-cover.png" alt="Photo of Alternate Cookie$ Album Cover" />
             <h1 data-text="MERCH" className="merch-glitch passion-one-bold mx-auto mt-16 text-8xl uppercase text-white">
                 merch
             </h1>
@@ -30,7 +29,7 @@ export function Merch() {
                 onMouseLeave={() => setStyle("front")}
             >
                 <img src={`/17b-nobg-${style}.png`} alt={`17B Merch Shirt ${style}`} className="h-auto w-full" />
-                <p className="mx-auto text-2xl text-[#EC4441]">17B Jersey</p>
+                <p className="relative bottom-[2rem] mx-auto text-2xl text-[#EC4441]">17B Jersey</p>
             </div>
             {merchList.map((merch, index) => (
                 <div
@@ -38,10 +37,11 @@ export function Merch() {
                     className="flex w-full cursor-pointer flex-col items-center justify-center px-8 transition-all duration-500 ease-in-out"
                 >
                     <img src={`${merch.merchSource}`} alt={merch.merchAlt} />
-                    <p className="mx-auto text-2xl text-[#EC4441]">{merch.merchTitle}</p>
+                    <p className="relative mx-auto text-2xl text-[#EC4441] lg:bottom-[2rem]">{merch.merchTitle}</p>
                 </div>
             ))}
             <MerchDialog />
+            <p className="mx-auto text-[#EC4441]">Limited orders only!</p>
         </section>
     )
 }

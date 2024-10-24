@@ -29,14 +29,12 @@
     content: attr(data-text);
     top: 0;
     left: 0;
-    animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94) both
-        infinite;
+    animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94) both infinite;
 }
 .merch-glitch::before {
     color: #00c2ba;
     z-index: -2;
-    animation: glitching-blue 0.6s cubic-bezier(0.25, 0.46, 0.25, 0.94) both
-        infinite;
+    animation: glitching-blue 0.6s cubic-bezier(0.25, 0.46, 0.25, 0.94) both infinite;
 }
 .merch-glitch::after {
     color: #33ff04;
@@ -71,8 +69,7 @@
 }
 
 .cookies-logo-container::after {
-    animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94)
-        infinite;
+    animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94) infinite;
 }
 .passion-one-regular {
     font-family: "Passion One", sans-serif;

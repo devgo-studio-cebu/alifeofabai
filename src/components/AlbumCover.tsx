@@ -7,17 +7,12 @@ export function AlbumCover() {
             />
             <div
                 style={{
-                    background:
-                        "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0))",
+                    background: "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0))",
                 }}
                 className="absolute top-0 h-24 w-full"
             ></div>
 
-            <img
-                src="/album-cover-combined-nobg.png"
-                alt=""
-                className="pointer-events-none z-10"
-            />
+            <img src="/album-cover-combined-nobg.png" alt="" className="pointer-events-none z-10" />
         </section>
     )
 }

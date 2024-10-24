@@ -55,7 +55,7 @@ const AudioSection: React.FC<AudioSectionProps> = ({ id, audioSrc, children }) =
     return (
         <section
             ref={sectionRef}
-            style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}
+            // style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}
         >
             {children}
         </section>

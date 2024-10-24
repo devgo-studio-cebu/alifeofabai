@@ -1,69 +1,51 @@
 ---
-import { motion } from "framer-motion"
-
-import { Form } from "@/components/Form"
+import { AlbumCover } from "@/components/AlbumCover"
+import { AudioControl } from "@/components/AudioControl"
+import { Intro } from "@/components/Intro"
+import { ListenNow } from "@/components/ListenNow"
+import { Merch } from "@/components/Merch"
+import { Songs } from "@/components/Songs"
+import { TransitionCarousel } from "@/components/TransitionCarousel"
 import Layout from "@/layouts/Layout.astro"
 
 import "src/styles/styles.css"
 import "src/styles/global.css"
-
-import { AlbumCover } from "@/components/AlbumCover"
-import { Intro } from "@/components/Intro"
-import { ListenNow } from "@/components/ListenNow"
-import { Merch } from "@/components/Merch"
-import { MerchForm } from "@/components/MerchForm"
-import { MusicVideo } from "@/components/MusicVideo"
-import { MusicVideoContainer } from "@/components/MusicVideoContainer"
-import { Songs } from "@/components/Songs"
-import { TransitionCarousel } from "@/components/TransitionCarousel"
-import { MerchDialog } from "@/components/MerchDialog"
-import { AudioControl } from "@/components/AudioControl"
+import { Footer } from "@/components/Footer"
 ---
 
 <Layout title="A Life of a Bai">
-    <div class="relative page-header grid-cols-4 lg:grid">
-        <div></div>
-        <div class="col-span-2">
-            <AudioControl client:load/>
+    <div class="page-header flex-grow lg:grid lg:grid-cols-4">
+        <div class="col-span-2 col-start-2">
+            <AudioControl client:load />
             <Intro client:load />
-            <section
-                class="relative mb-[2rem] mt-[7rem] w-full border-solid border-red-500 px-4"
-            >
-
-                <p class="relative left-0 top-4 text-4xl text-white opacity-75">
-                    by
-                </p>
+            <section class="relative mb-[2rem] mt-[7rem] w-full border-solid border-red-500 px-4">
+                <p class="relative left-0 top-4 text-4xl text-white opacity-75">by</p>
                 <div class="cookies-logo-container h-auto rotate-[-15deg]">
                     <img
                         src="./cookies-logo-nobg-white.png"
                         id="cookies-logo"
-                        alt=""
+                        alt="Cookies Logo"
                         class="cookies-logo mx-auto w-fit"
                     />
                 </div>
 
-                <p
-                    class="bottom-0 right-0 ml-auto w-fit text-4xl text-white opacity-75"
-                >
-                    10.25.2024
-                </p>
+                <p class="bottom-0 right-0 ml-auto w-fit text-4xl text-white opacity-75">10.25.2024</p>
             </section>
             <AlbumCover />
-            <Songs client:load/>
+            <Songs client:load />
             <Merch client:idle />
             <TransitionCarousel client:idle />
             <ListenNow />
+            <Footer/>
         </div>
-        <div></div>
     </div>
-    <!-- <Form /> -->
 </Layout>
 
 <!-- Todo -->
 <!-- Add scroll snapping to Song section -->
-<!--? Work on Desktop Responsiveness -->
+<!--! Work on Desktop Responsiveness -->
 <!--! Work on Merch sizing -->
 <!-- Add Footer -->
 <!-- Look for a better film grain image for grain overlay -->
-<!--? Edit glitch effect in Pasitib video too (.webm) -->
-<!--? Add auto play respective song when reaching section -->
+<!--! Edit glitch effect in Pasitib video too (.webm) -->
+<!--! Add auto play respective song when reaching section -->

@@ -1,12 +1,12 @@
 type MusicVideoProps = {
-    videoSource: string
+    videoSrc: string
     videoFormat: string
 }
 
-export function MusicVideo({ videoSource, videoFormat }: MusicVideoProps) {
+export function MusicVideo({ videoSrc, videoFormat }: MusicVideoProps) {
     return (
-        <video className="w-auto object-cover" autoPlay loop muted playsInline>
-            <source src={videoSource} type={`video/${videoFormat}`} />
+        <video className="w-auto object-cover lg:h-full" autoPlay loop muted playsInline>
+            <source src={videoSrc} type={`video/${videoFormat}`} />
             Your browser does not support the video tag.
         </video>
     )

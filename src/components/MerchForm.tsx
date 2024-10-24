@@ -28,12 +28,12 @@ function FormInput({ control, name, label, type, description }: FormInputProps) 
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel className="font-bold text-[#560E0E]">{label}</FormLabel>
+                    <FormLabel className="font-bold text-white">{label}</FormLabel>
                     <FormControl>
-                        <Input {...field} type={type} className="border-[#711312] bg-slate-300" />
+                        <Input {...field} type={type} className="border-[#711312] bg-slate-300 text-[#560E0E]" />
                     </FormControl>
                     {description && (
-                        <FormDescription className="text-center text-[#560E0E]">{description}</FormDescription>
+                        <FormDescription className="text-center text-gray-200">{description}</FormDescription>
                     )}
                     <FormMessage />
                 </FormItem>
@@ -57,14 +57,14 @@ function FormSelect({ control, name, label, options, styles }: FormSelectProps) 
             name={name}
             render={({ field }) => (
                 <FormItem className="w-full">
-                    <FormLabel className="font-bold text-[#560E0E]">{label}</FormLabel>
+                    <FormLabel className="font-bold text-white">{label}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl className={styles}>
-                            <SelectTrigger>
-                                <SelectValue />
+                            <SelectTrigger className="text-[#560E0E]">
+                                <SelectValue className="text-[#560E0E]" />
                             </SelectTrigger>
                         </FormControl>
-                        <SelectContent>
+                        <SelectContent className="text-[#560E0E]">
                             {options.map((option) => (
                                 <SelectItem key={option.value} value={option.value}>
                                     {option.label}
@@ -133,7 +133,7 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
 
     const shirtDesigns = [
         { value: "17B Jersey", label: "17B Jersey" },
-        { value: "Pasitib Musclee Tee", label: "Pasitib Musclee Tee" },
+        { value: "Pasitib Muscle Tee", label: "Pasitib Muscle Tee" },
         { value: "Cookies Navy Blue", label: "Cookies Navy Blue" },
     ]
 
