@@ -28,11 +28,13 @@ function FormInput({ control, name, label, type, description }: FormInputProps) 
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>{label}</FormLabel>
+                    <FormLabel className="font-bold text-white">{label}</FormLabel>
                     <FormControl>
-                        <Input {...field} type={type} />
+                        <Input {...field} type={type} className="border-[#711312] bg-slate-300 text-[#560E0E]" />
                     </FormControl>
-                    {description && <FormDescription>{description}</FormDescription>}
+                    {description && (
+                        <FormDescription className="text-center text-gray-200">{description}</FormDescription>
+                    )}
                     <FormMessage />
                 </FormItem>
             )}
@@ -45,23 +47,24 @@ type FormSelectProps = Omit<FormInputProps, "type"> & {
         value: string
         label: string
     }[]
+    styles: string
 }
 
-function FormSelect({ control, name, label, options }: FormSelectProps) {
+function FormSelect({ control, name, label, options, styles }: FormSelectProps) {
     return (
         <FormField
             control={control}
             name={name}
             render={({ field }) => (
-                <FormItem>
-                    <FormLabel>{label}</FormLabel>
+                <FormItem className="w-full">
+                    <FormLabel className="font-bold text-white">{label}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                            <SelectTrigger>
-                                <SelectValue />
+                        <FormControl className={styles}>
+                            <SelectTrigger className="text-[#560E0E]">
+                                <SelectValue className="text-[#560E0E]" />
                             </SelectTrigger>
                         </FormControl>
-                        <SelectContent>
+                        <SelectContent className="text-[#560E0E]">
                             {options.map((option) => (
                                 <SelectItem key={option.value} value={option.value}>
                                     {option.label}
@@ -130,7 +133,7 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
 
     const shirtDesigns = [
         { value: "17B Jersey", label: "17B Jersey" },
-        { value: "Pasitib Musclee Tee", label: "Pasitib Musclee Tee" },
+        { value: "Pasitib Muscle Tee", label: "Pasitib Muscle Tee" },
         { value: "Cookies Navy Blue", label: "Cookies Navy Blue" },
     ]
 
@@ -142,47 +145,65 @@ export function MerchForm({ onSuccess }: MerchFormProps) {
     ]
 
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className="md:grid md:grid-cols-2 md:gap-x-2">
-                    <FormInput control={form.control} name="firstName" label="First Name" type="text" />
-                    <FormInput control={form.control} name="lastName" label="Last Name" type="text" />
-                </div>
-                <FormInput control={form.control} name="emailAddress" label="Email Address" type="email" />
-                <FormInput control={form.control} name="phoneNumber" label="Phone Number" type="text" />
-                {["country", "province", "city", "barangay"].map((field) => (
+        <div className="h-[500px] overflow-auto overscroll-y-none">
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="bg-[#BC2725] p-4">
+                    <div className="md:grid md:grid-cols-2 md:gap-x-2">
+                        <FormInput control={form.control} name="firstName" label="First Name" type="text" />
+                        <FormInput control={form.control} name="lastName" label="Last Name" type="text" />
+                    </div>
+                    <FormInput control={form.control} name="emailAddress" label="Email Address" type="email" />
+                    <FormInput control={form.control} name="phoneNumber" label="Phone Number" type="text" />
+                    {["country", "province", "city", "barangay"].map((field) => (
+                        <FormInput
+                            key={field}
+                            control={form.control}
+                            name={field as MerchFormKeys}
+                            label={field.charAt(0).toUpperCase() + field.slice(1)}
+                            type="text"
+                        />
+                    ))}
+                    <FormInput control={form.control} name="streetAddress" label="Street Address" type="text" />
                     <FormInput
-                        key={field}
                         control={form.control}
-                        name={field as MerchFormKeys}
-                        label={field.charAt(0).toUpperCase() + field.slice(1)}
+                        name="postCode"
+                        label="Post Code"
                         type="text"
+                        description={
+                            <>
+                                Look for your post code here:&nbsp;
+                                <a
+                                    href="https://worldpostalcode.com/philippines/"
+                                    target="_blank"
+                                    rel="nofollow"
+                                    className="underline hover:text-blue-600"
+                                >
+                                    World Postal Code
+                                </a>
+                            </>
+                        }
                     />
-                ))}
-                <FormInput control={form.control} name="streetAddress" label="Street Address" type="text" />
-                <FormInput
-                    control={form.control}
-                    name="postCode"
-                    label="Post Code"
-                    type="text"
-                    description={
-                        <>
-                            Look for your post code here:&nbsp;
-                            <a
-                                href="https://worldpostalcode.com/philippines/"
-                                target="_blank"
-                                rel="nofollow"
-                                className="underline hover:text-blue-600"
-                            >
-                                World Postal Code
-                            </a>
-                        </>
-                    }
-                />
-                <FormSelect control={form.control} name="shirtDesign" label="Shirt Design" options={shirtDesigns} />
-                <FormSelect control={form.control} name="shirtSize" label="Shirt Size" options={shirtSizes} />
-                <Button type="submit">Pre-order</Button>
-            </form>
-        </Form>
+                    <div className="mt-2 flex w-full justify-between gap-2">
+                        <FormSelect
+                            control={form.control}
+                            name="shirtDesign"
+                            label="Shirt Design"
+                            options={shirtDesigns}
+                            styles="w-[175px] border-[#711312] bg-slate-300 overflow-hidden truncate"
+                        />
+                        <FormSelect
+                            control={form.control}
+                            name="shirtSize"
+                            label="Shirt Size"
+                            options={shirtSizes}
+                            styles="border-[#711312] bg-slate-300 "
+                        />
+                    </div>
+                    <Button type="submit" className="mt-8 w-full rounded-md bg-[#711312] font-bold text-white">
+                        Pre-order
+                    </Button>
+                </form>
+            </Form>
+        </div>
     )
 }

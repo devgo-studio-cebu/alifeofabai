@@ -1,0 +1,164 @@
+.page-header {
+    height: 100vh;
+}
+
+.page-header:after {
+    pointer-events: none;
+    background-image: url(https://thumbs.dreamstime.com/b/background-grain-texture-black-abstract-film-noise-dotwork-halftone-grunge-design-concepts-banners-posters-wallpapers-web-90834053.jpg);
+    content: "";
+    animation: grain 0.5s steps(10) infinite;
+    position: fixed;
+    height: 300%;
+    width: 300%;
+    top: -100%;
+    left: -50%;
+    opacity: 0.15;
+    mix-blend-mode: screen;
+}
+.merch-glitch {
+    position: relative;
+    z-index: 99;
+    /* font-size: 12em; */
+    color: #fff;
+    /* left: 35%;
+    top: 40%; */
+}
+.merch-glitch::before,
+.merch-glitch::after {
+    position: absolute;
+    content: attr(data-text);
+    top: 0;
+    left: 0;
+    animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94) both infinite;
+}
+.merch-glitch::before {
+    color: #00c2ba;
+    z-index: -2;
+    animation: glitching-blue 0.6s cubic-bezier(0.25, 0.46, 0.25, 0.94) both infinite;
+}
+.merch-glitch::after {
+    color: #33ff04;
+    z-index: -1;
+}
+.cookies-logo-container {
+    position: relative; /* Positioning context for pseudo-elements */
+    display: inline-block; /* Ensure it wraps around the image */
+}
+
+.cookies-logo {
+    display: block; /* Ensures no extra space below the image */
+}
+
+/* Pseudo-elements for glitch effect */
+.cookies-logo-container::before,
+.cookies-logo-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/cookies-logo-nobg-white.png"); /* Use the same image */
+    background-size: cover; /* Ensure it covers the container */
+    opacity: 0.5; /* Adjust opacity for desired effect */
+}
+
+/* Animation for glitch effect */
+.cookies-logo-container::before {
+    animation: glitching-blue 0.6s cubic-bezier(0.25, 0.46, 0.25, 0.94) infinite;
+}
+
+.cookies-logo-container::after {
+    animation: glitching-green 0.3s cubic-bezier(0.95, 0.46, 0.55, 0.94) infinite;
+}
+.passion-one-regular {
+    font-family: "Passion One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.passion-one-bold {
+    font-family: "Passion One", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.passion-one-black {
+    font-family: "Passion One", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+@keyframes glitching-green {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-1px, 0);
+    }
+    40% {
+        transform: translate(1px, 0);
+    }
+    60% {
+        transform: translate(-1px, 0);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+@keyframes glitching-blue {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(1px, 0px);
+    }
+    40% {
+        transform: translate(-1px, 0px);
+    }
+    60% {
+        transform: translate(-2px, 0px);
+    }
+    65% {
+        transform: translate(1px, 0px);
+    }
+    80% {
+        transform: translate(3px, 0px);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+@keyframes grain {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(-3%, -2%);
+    }
+    20% {
+        transform: translate(-1%, 2%);
+    }
+    30% {
+        transform: translate(5%, -3%);
+    }
+    40% {
+        transform: translate(-5%, 4%);
+    }
+    50% {
+        transform: translate(-2%, 1%);
+    }
+    60% {
+        transform: translate(3%, 4%);
+    }
+    70% {
+        transform: translate(-4%, 3%);
+    }
+    80% {
+        transform: translate(3%, 8%);
+    }
+    90% {
+        transform: translate(-2%, 0%);
+    }
+}
