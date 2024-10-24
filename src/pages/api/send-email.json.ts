@@ -41,7 +41,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { error } = await resend.emails.send({
         from: "A Life of a Bai <merch@alifeofabai.com>",
-        to: "lanutanenzo.developer@gmail.com",
+        to: "cookies@thebakeshopstudios.com",
         subject: `Order from ${firstName} ${lastName}`,
         react: MerchEmail({
             fullName: `${firstName} ${lastName}`,
