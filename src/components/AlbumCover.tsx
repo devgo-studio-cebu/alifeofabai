@@ -12,7 +12,7 @@ export function AlbumCover() {
                 className="absolute top-0 h-24 w-full"
             ></div>
 
-            <img src="/album-cover-combined-nobg.png" alt="" className="pointer-events-none z-10" />
+            <img src="/album-cover-final.png" alt="Photo of Album Cover" className="pointer-events-none z-10" />
         </section>
     )
 }
